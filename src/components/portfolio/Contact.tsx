@@ -49,12 +49,9 @@ export function Contact() {
 export function Footer() {
   return (
     <footer className="bg-ink text-cream/70 py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm md:flex-row">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 text-sm md:flex-row">
         <p>© {new Date().getFullYear()} Vandana Yadav. All rights reserved.</p>
         <p className="font-display">Designed with rigor. Shipped with energy.</p>
-        <a href="/portal" className="text-xs uppercase tracking-widest text-cream/40 hover:text-coral transition-colors">
-          Admin portal →
-        </a>
       </div>
     </footer>
   );
