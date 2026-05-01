@@ -30,7 +30,7 @@ function AvatarModel() {
 
   return (
     <group ref={group}>
-      <primitive object={scene} scale={1.8} position={[0, -1.8, 0]} />
+      <primitive object={scene} scale={2.1} position={[0, -2.6, 0]} />
     </group>
   );
 }
@@ -51,7 +51,7 @@ export function Avatar3D() {
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: [0, 0.3, 4.5], fov: 32 }}
+        camera={{ position: [0, 0.1, 3.6], fov: 30 }}
         gl={{ antialias: true, alpha: true }}
       >
         <ambientLight intensity={0.5} />
@@ -76,7 +76,7 @@ export function Avatar3D() {
           </PresentationControls>
 
           <ContactShadows
-            position={[0, -1.85, 0]}
+            position={[0, -2.65, 0]}
             opacity={0.55}
             scale={8}
             blur={2.6}

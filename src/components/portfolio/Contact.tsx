@@ -32,12 +32,12 @@ export function Contact() {
             vandana@example.com →
           </a>
           <a
-            href="https://www.linkedin.com"
+            href="https://www.youtube.com/@indianbhaktiaisongs"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-ink/40 bg-coral-soft/40 px-8 py-4 text-sm font-semibold text-ink hover:border-ink transition-colors"
           >
-            LinkedIn
+            YouTube channel
           </a>
         </div>
 
@@ -53,6 +53,9 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-sm md:flex-row">
         <p>© {new Date().getFullYear()} Vandana Yadav. All rights reserved.</p>
         <p className="font-display">Designed with rigor. Shipped with energy.</p>
+        <a href="/portal" className="text-xs uppercase tracking-widest text-cream/40 hover:text-coral transition-colors">
+          Admin portal →
+        </a>
       </div>
     </footer>
   );

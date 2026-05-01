@@ -16,7 +16,7 @@ export function Hero() {
       {/* Top bar */}
       <div className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 pt-8 text-xs uppercase tracking-[0.25em] text-white/60">
         <span className="font-display text-base font-semibold tracking-normal text-white">VY</span>
-        <span className="hidden md:inline">linkedin.com/in/vandanayadav</span>
+        <span className="hidden md:inline">youtube.com/@indianbhaktiaisongs</span>
       </div>
 
       {/* Avatar fills the screen as the hero centerpiece */}
@@ -61,9 +61,8 @@ export function Hero() {
 
       {/* Side rail — socials */}
       <div className="absolute bottom-8 left-6 z-20 hidden flex-col gap-4 text-white/50 md:flex">
-        <a href="#" className="pointer-events-auto hover:text-coral transition-colors">in</a>
-        <a href="#" className="pointer-events-auto hover:text-coral transition-colors">ig</a>
-        <a href="#" className="pointer-events-auto hover:text-coral transition-colors">yt</a>
+        <a href="https://www.youtube.com/@indianbhaktiaisongs" target="_blank" rel="noreferrer" className="pointer-events-auto hover:text-coral transition-colors">yt</a>
+        <a href="#contact" className="pointer-events-auto hover:text-coral transition-colors">@</a>
       </div>
 
       {/* CTA */}

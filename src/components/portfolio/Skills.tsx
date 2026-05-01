@@ -7,6 +7,7 @@ const skills = [
   { title: "Leadership", items: ["153+ team", "1,500+ trained", "Public speaking", "Training design"] },
   { title: "Finance & CRM", items: ["Financial analysis", "CRM management", "Healthcare data", "Growth dashboards"] },
   { title: "Tools", items: ["Notion · Figma", "HubSpot · Zoho", "Excel · Power BI", "ChatGPT · Claude"] },
+  { title: "Music & Bhakti", items: ["Devotional music curation", "YouTube creator", "Indian Bhakti AI Songs", "Sound storytelling"] },
 ];
 
 export function Skills() {
@@ -47,6 +48,31 @@ export function Skills() {
             </motion.div>
           ))}
         </div>
+
+        {/* YouTube highlight card */}
+        <motion.a
+          href="https://www.youtube.com/@indianbhaktiaisongs"
+          target="_blank"
+          rel="noreferrer"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="group mt-8 flex flex-col items-start justify-between gap-6 rounded-3xl border border-coral/40 bg-gradient-to-br from-coral/15 via-cream to-coral-soft/40 p-8 transition-all hover:-translate-y-1 hover:shadow-xl md:flex-row md:items-center"
+        >
+          <div className="flex items-center gap-5">
+            <span className="grid h-14 w-14 place-items-center rounded-2xl bg-coral text-cream">
+              <svg viewBox="0 0 24 24" className="h-7 w-7" fill="currentColor"><path d="M23 12s0-3.6-.5-5.3a2.8 2.8 0 0 0-2-2C18.7 4 12 4 12 4s-6.7 0-8.5.7a2.8 2.8 0 0 0-2 2C1 8.4 1 12 1 12s0 3.6.5 5.3a2.8 2.8 0 0 0 2 2c1.8.7 8.5.7 8.5.7s6.7 0 8.5-.7a2.8 2.8 0 0 0 2-2C23 15.6 23 12 23 12zM10 15.5v-7l6 3.5-6 3.5z"/></svg>
+            </span>
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-coral">YouTube · Music</p>
+              <p className="font-display text-2xl font-semibold text-ink">@indianbhaktiaisongs</p>
+              <p className="text-sm text-ink/60">Devotional AI music — a creative side project</p>
+            </div>
+          </div>
+          <span className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-cream group-hover:bg-coral group-hover:text-ink transition-colors">
+            Visit channel →
+          </span>
+        </motion.a>
       </div>
     </section>
   );
