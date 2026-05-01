@@ -3,136 +3,94 @@ import { Avatar3D } from "./Avatar3D";
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 pt-16 pb-24 lg:grid-cols-12 lg:gap-6 lg:pt-24 lg:pb-32">
-        {/* LEFT */}
-        <div className="lg:col-span-7 flex flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-ink/15 bg-card px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-ink/70"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-coral animate-pulse" />
-            Available for select projects · Delhi, IN
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="mt-6 font-display text-[clamp(3rem,7vw,6.5rem)] font-700 leading-[0.95] text-balance"
-          >
-            Finance brain.<br />
-            <span className="italic text-coral">Creative</span> hustle.<br />
-            Built to scale.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="mt-8 max-w-xl text-lg text-muted-foreground text-pretty"
-          >
-            I'm <span className="font-semibold text-ink">Vandana Yadav</span> — MBA (Finance), high-energy
-            operator and B2B strategist. I lead big teams, ship AI-powered marketing,
-            and turn messy growth problems into clean systems.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-10 flex flex-wrap items-center gap-4"
-          >
-            <a
-              href="#work"
-              className="group inline-flex items-center gap-2 rounded-full bg-ink px-7 py-4 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
-            >
-              See selected work
-              <span className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 rounded-full border border-ink/20 bg-card px-7 py-4 text-sm font-semibold text-ink hover:border-ink/60 transition-colors"
-            >
-              Hire Vandana
-            </a>
-          </motion.div>
-
-          {/* metric strip */}
-          <motion.dl
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-border pt-8"
-          >
-            {[
-              { k: "153+", v: "team led" },
-              { k: "1,500+", v: "trained" },
-              { k: "40%", v: "faster content" },
-            ].map((m) => (
-              <div key={m.v}>
-                <dt className="font-display text-3xl font-semibold text-ink">{m.k}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{m.v}</dd>
-              </div>
-            ))}
-          </motion.dl>
-        </div>
-
-        {/* RIGHT — character */}
-        <div className="lg:col-span-5 relative flex items-end justify-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-            className="relative w-full max-w-md"
-          >
-            {/* coral disc backdrop */}
-            <div className="absolute inset-x-2 bottom-16 top-16 rounded-[2.5rem] bg-gradient-to-br from-coral-soft via-coral/30 to-coral/60 blur-md" />
-            <div className="absolute inset-x-6 bottom-20 top-20 rounded-[2rem] bg-cream/30 backdrop-blur-sm" />
-
-            <div className="relative z-10">
-              <Avatar3D />
-            </div>
-
-            {/* floating badges */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1, duration: 0.6 }}
-              className="absolute left-0 top-20 z-20 hidden rounded-2xl bg-card px-4 py-3 shadow-soft sm:block"
-            >
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Now playing</p>
-              <p className="font-display text-sm font-semibold">AI Marketing Suite</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
-              className="absolute -right-2 bottom-24 z-20 hidden rounded-2xl bg-ink px-4 py-3 text-cream shadow-soft sm:block"
-            >
-              <p className="text-[10px] uppercase tracking-widest text-cream/60">KPI</p>
-              <p className="font-display text-sm font-semibold">+25% onboarding speed</p>
-            </motion.div>
-          </motion.div>
-        </div>
+    <section
+      id="top"
+      className="relative min-h-screen w-full overflow-hidden bg-[#0a0a0f] text-white"
+    >
+      {/* Ambient glows */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute left-1/2 top-1/2 h-[80vmin] w-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-coral/25 blur-[120px]" />
+        <div className="absolute -bottom-32 right-0 h-[40vmin] w-[40vmin] rounded-full bg-indigo-500/20 blur-[100px]" />
       </div>
 
-      {/* marquee */}
-      <div className="relative border-y border-border bg-ink text-cream overflow-hidden">
-        <div className="flex animate-[scroll_40s_linear_infinite] whitespace-nowrap py-5">
+      {/* Top bar */}
+      <div className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 pt-8 text-xs uppercase tracking-[0.25em] text-white/60">
+        <span className="font-display text-base font-semibold tracking-normal text-white">VY</span>
+        <span className="hidden md:inline">linkedin.com/in/vandanayadav</span>
+      </div>
+
+      {/* Avatar fills the screen as the hero centerpiece */}
+      <div className="absolute inset-0 z-10">
+        <Avatar3D />
+      </div>
+
+      {/* Overlay text — placed on the sides so the avatar is fully visible */}
+      <div className="pointer-events-none relative z-20 mx-auto grid min-h-[calc(100vh-80px)] max-w-7xl grid-cols-12 items-center gap-6 px-6">
+        {/* LEFT */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.2 }}
+          className="col-span-12 md:col-span-4"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-white/50">Hello! I'm</p>
+          <h1 className="mt-3 font-display text-5xl font-700 leading-[0.95] md:text-6xl lg:text-7xl">
+            VANDANA<br />YADAV
+          </h1>
+        </motion.div>
+
+        {/* spacer for avatar in middle */}
+        <div className="hidden md:col-span-4 md:block" />
+
+        {/* RIGHT */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.35 }}
+          className="col-span-12 text-right md:col-span-4"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-white/50">MBA · Finance</p>
+          <h2 className="mt-3 font-display text-5xl font-700 leading-[0.95] md:text-6xl lg:text-7xl">
+            B2B<br />
+            <span className="bg-gradient-to-r from-coral to-amber-300 bg-clip-text text-transparent">
+              STRATEGIST
+            </span>
+          </h2>
+        </motion.div>
+      </div>
+
+      {/* Side rail — socials */}
+      <div className="absolute bottom-8 left-6 z-20 hidden flex-col gap-4 text-white/50 md:flex">
+        <a href="#" className="pointer-events-auto hover:text-coral transition-colors">in</a>
+        <a href="#" className="pointer-events-auto hover:text-coral transition-colors">ig</a>
+        <a href="#" className="pointer-events-auto hover:text-coral transition-colors">yt</a>
+      </div>
+
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="absolute bottom-8 right-6 z-20"
+      >
+        <a
+          href="#work"
+          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-white backdrop-blur transition-all hover:border-coral hover:bg-coral hover:text-ink"
+        >
+          See work →
+        </a>
+      </motion.div>
+
+      {/* Marquee at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 z-30 overflow-hidden border-t border-white/10 bg-black/40 backdrop-blur">
+        <div className="flex animate-[scroll_40s_linear_infinite] whitespace-nowrap py-3">
           {Array.from({ length: 2 }).map((_, i) => (
-            <div key={i} className="flex shrink-0 items-center gap-12 px-6 font-display text-2xl">
-              <span>MBA · Finance</span><span className="text-coral">●</span>
-              <span>B2B Strategy</span><span className="text-coral">●</span>
+            <div key={i} className="flex shrink-0 items-center gap-10 px-6 font-display text-sm uppercase tracking-[0.2em] text-white/70">
+              <span>153+ team led</span><span className="text-coral">●</span>
+              <span>1,500+ trained</span><span className="text-coral">●</span>
               <span>AI Generative Marketing</span><span className="text-coral">●</span>
-              <span>Public Speaking</span><span className="text-coral">●</span>
               <span>CRM & Analytics</span><span className="text-coral">●</span>
-              <span>Content & Video</span><span className="text-coral">●</span>
-              <span>Team Leadership</span><span className="text-coral">●</span>
+              <span>Public Speaking</span><span className="text-coral">●</span>
             </div>
           ))}
         </div>
