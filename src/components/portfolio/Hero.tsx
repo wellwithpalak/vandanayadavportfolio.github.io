@@ -16,7 +16,7 @@ export function Hero() {
       {/* Top bar */}
       <div className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 pt-8 text-xs uppercase tracking-[0.25em] text-white/60">
         <span className="font-display text-base font-semibold tracking-normal text-white">VY</span>
-        <span className="hidden md:inline">youtube.com/@indianbhaktiaisongs</span>
+        <span className="hidden md:inline">Marketing · AI · Brand strategy</span>
       </div>
 
       {/* Avatar fills the screen as the hero centerpiece */}
@@ -59,10 +59,9 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Side rail — socials */}
-      <div className="absolute bottom-8 left-6 z-20 hidden flex-col gap-4 text-white/50 md:flex">
-        <a href="https://www.youtube.com/@indianbhaktiaisongs" target="_blank" rel="noreferrer" className="pointer-events-auto hover:text-coral transition-colors">yt</a>
-        <a href="#contact" className="pointer-events-auto hover:text-coral transition-colors">@</a>
+      {/* Side rail */}
+      <div className="absolute bottom-8 left-6 z-20 hidden flex-col gap-4 text-[10px] uppercase tracking-[0.3em] text-white/50 md:flex">
+        <span>Delhi · IN</span>
       </div>
 
       {/* CTA */}
