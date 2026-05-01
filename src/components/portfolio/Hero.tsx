@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import { Avatar3D } from "./Avatar3D";
+import { AnimatedAvatar } from "./AnimatedAvatar";
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[100svh] w-full overflow-hidden bg-[#0a0a0f] text-white"
+      className="relative min-h-[100svh] w-full overflow-hidden bg-[#1a1a1a] text-white pt-[max(env(safe-area-inset-top),0px)]"
     >
       {/* Ambient glows */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-1/2 h-[80vmin] w-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-coral/25 blur-[120px]" />
-        <div className="absolute -bottom-32 right-0 h-[40vmin] w-[40vmin] rounded-full bg-indigo-500/20 blur-[100px]" />
+        <div className="absolute left-1/2 top-1/2 h-[80vmin] w-[80vmin] -translate-x-1/2 -translate-y-1/2 rounded-full bg-coral/20 blur-[120px]" />
+        <div className="absolute -bottom-32 right-0 h-[40vmin] w-[40vmin] rounded-full bg-indigo-500/15 blur-[100px]" />
       </div>
 
       {/* Top bar */}
@@ -21,12 +21,11 @@ export function Hero() {
 
       {/* Avatar centerpiece */}
       <div className="absolute inset-0 z-10">
-        <Avatar3D />
+        <AnimatedAvatar />
       </div>
 
-      {/* Overlay text — mobile: stacked top/bottom; desktop: side-by-side */}
+      {/* Overlay text */}
       <div className="pointer-events-none relative z-20 mx-auto flex min-h-[calc(100svh-80px)] max-w-7xl flex-col justify-between gap-6 px-5 py-6 md:grid md:grid-cols-12 md:items-center md:px-6 md:py-0">
-        {/* TOP / LEFT */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,10 +38,8 @@ export function Hero() {
           </h1>
         </motion.div>
 
-        {/* spacer for avatar in middle on desktop */}
         <div className="hidden md:col-span-4 md:block" />
 
-        {/* BOTTOM / RIGHT */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,18 +61,18 @@ export function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="absolute bottom-16 right-5 z-20 md:bottom-20 md:right-6"
+        className="absolute bottom-20 right-5 z-20 md:bottom-24 md:right-6"
       >
         <a
           href="#work"
-          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur transition-all hover:border-coral hover:bg-coral hover:text-ink md:px-6 md:py-3 md:text-xs"
+          className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white backdrop-blur transition-all hover:border-coral hover:bg-coral hover:text-ink active:scale-95 md:px-6 md:py-3 md:text-xs"
         >
           See work →
         </a>
       </motion.div>
 
       {/* Marquee at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-30 overflow-hidden border-t border-white/10 bg-black/40 backdrop-blur">
+      <div className="absolute bottom-0 left-0 right-0 z-30 overflow-hidden border-t border-white/10 bg-black/40 backdrop-blur pb-[env(safe-area-inset-bottom)]">
         <div className="flex animate-[scroll_40s_linear_infinite] whitespace-nowrap py-2.5 md:py-3">
           {Array.from({ length: 2 }).map((_, i) => (
             <div key={i} className="flex shrink-0 items-center gap-6 px-6 font-display text-[11px] uppercase tracking-[0.2em] text-white/70 md:gap-10 md:text-sm">

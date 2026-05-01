@@ -1,4 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { CursorFX } from "@/components/portfolio/CursorFX";
 
 import appCss from "../styles.css?url";
 
@@ -72,5 +74,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return <Outlet />;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      document.documentElement.classList.add("has-custom-cursor");
+    }
+  }, []);
+  return (
+    <>
+      <CursorFX />
+      <Outlet />
+    </>
+  );
 }

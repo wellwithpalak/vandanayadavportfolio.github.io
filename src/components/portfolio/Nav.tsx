@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Briefcase, User, Sparkles, Leaf, Mail, ArrowRight } from "lucide-react";
+import { Menu, X, Briefcase, User, Sparkles, Leaf, Mail, ArrowRight, FileText } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 const anchorLinks = [
@@ -38,6 +38,11 @@ export function Nav() {
           <li>
             <Link to="/wellwith" className="text-ink/70 hover:text-coral transition-colors">
               Wellwith
+            </Link>
+          </li>
+          <li>
+            <Link to="/resume" className="text-ink/70 hover:text-coral transition-colors">
+              Resume
             </Link>
           </li>
           <li>
@@ -113,6 +118,16 @@ export function Nav() {
                     >
                       <Leaf className="h-4 w-4 text-coral" />
                       Wellwith
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/resume"
+                      onClick={() => setOpen(false)}
+                      className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-cream/85 hover:bg-cream/5 hover:text-coral"
+                    >
+                      <FileText className="h-4 w-4 text-coral" />
+                      Resume
                     </Link>
                   </li>
                   <li>
