@@ -101,7 +101,7 @@ export function Avatar3D() {
             polar={[-0.2, 0.2]}
             azimuth={[-0.6, 0.6]}
             config={{ mass: 2, tension: 400 }}
-            snap={{ mass: 4, tension: 300 }}
+            snap
           >
             <AvatarModel />
             <FloatingShapes />
