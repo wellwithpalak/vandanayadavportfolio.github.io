@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImg from "@/assets/vandana-hero.png";
+import { Avatar3D } from "./Avatar3D";
 
 export function Hero() {
   return (
@@ -84,23 +84,18 @@ export function Hero() {
         {/* RIGHT — character */}
         <div className="lg:col-span-5 relative flex items-end justify-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -4 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
             className="relative w-full max-w-md"
           >
-            {/* coral disc */}
-            <div className="absolute inset-x-6 bottom-12 top-12 rounded-[2.5rem] bg-gradient-to-br from-coral-soft via-coral/40 to-coral/80 blur-sm" />
-            <div className="absolute inset-x-10 bottom-16 top-16 rounded-[2rem] bg-cream/40 backdrop-blur-sm" />
+            {/* coral disc backdrop */}
+            <div className="absolute inset-x-2 bottom-16 top-16 rounded-[2.5rem] bg-gradient-to-br from-coral-soft via-coral/30 to-coral/60 blur-md" />
+            <div className="absolute inset-x-6 bottom-20 top-20 rounded-[2rem] bg-cream/30 backdrop-blur-sm" />
 
-            <motion.img
-              src={heroImg}
-              alt="3D illustrated portrait of Vandana Yadav in a black suit and red tie"
-              className="relative z-10 mx-auto w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.25)]"
-              animate={{ y: [0, -14, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              loading="eager"
-            />
+            <div className="relative z-10">
+              <Avatar3D />
+            </div>
 
             {/* floating badges */}
             <motion.div
