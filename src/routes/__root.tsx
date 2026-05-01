@@ -1,23 +1,34 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { MicDropLoader } from "@/components/portfolio/MicDropLoader";
+import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
+import { BackToTop } from "@/components/portfolio/BackToTop";
+import { SkipToContent } from "@/components/portfolio/SkipToContent";
+import { PageTransition } from "@/components/portfolio/PageTransition";
 
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-[#0a0a0f] px-4 text-cream">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-coral">Lost in the funnel</p>
+        <h1 className="mt-3 font-display text-[8rem] font-700 leading-none tracking-tight">404</h1>
+        <h2 className="mt-2 font-display text-2xl font-semibold">This page took a coffee break.</h2>
+        <p className="mt-3 text-sm text-cream/65">
+          The link is broken or the page moved. Let's get you somewhere useful.
         </p>
-        <div className="mt-6">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-2 rounded-full bg-coral px-6 py-3 text-sm font-semibold text-ink transition hover:bg-coral/90"
           >
-            Go home
+            ← Home
+          </Link>
+          <Link
+            to="/wellwith"
+            className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-6 py-3 text-sm font-semibold text-cream hover:border-coral hover:text-coral"
+          >
+            See Wellwith
           </Link>
         </div>
       </div>
@@ -29,7 +40,9 @@ export const Route = createRootRoute({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
+      { name: "theme-color", content: "#1a1a1a" },
+      { name: "format-detection", content: "telephone=no" },
       { title: "Vandana Yadav — MBA Finance · Leadership · AI-Driven Marketing" },
       { name: "description", content: "Portfolio of Vandana Yadav — MBA Finance professional from Delhi leading large teams, building AI-powered marketing systems and B2B growth playbooks." },
       { name: "author", content: "Vandana Yadav" },
@@ -43,14 +56,29 @@ export const Route = createRootRoute({
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b81b78e7-53f6-4485-8816-082c97219d11/id-preview-ade35c53--e8d2013e-8873-45cd-89c8-c339edcd5d93.lovable.app-1777606607245.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b81b78e7-53f6-4485-8816-082c97219d11/id-preview-ade35c53--e8d2013e-8873-45cd-89c8-c339edcd5d93.lovable.app-1777606607245.png" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Vandana Yadav",
+          jobTitle: "B2B Marketing Strategist · MBA Finance",
+          email: "mailto:vy3638017@gmail.com",
+          address: { "@type": "PostalAddress", addressLocality: "Delhi", addressCountry: "IN" },
+          knowsAbout: ["B2B Marketing", "AI Marketing", "Brand Strategy", "Leadership", "Public Speaking"],
+          sameAs: [
+            "https://www.instagram.com/seabuckthorn.wellwith/",
+            "https://www.youtube.com/@indianbhaktiaisongs",
+          ],
+        }),
+      },
+    ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
     ],
   }),
   shellComponent: RootShell,
@@ -76,7 +104,14 @@ function RootComponent() {
   return (
     <>
       <MicDropLoader />
-      <Outlet />
+      <ScrollProgress />
+      <SkipToContent />
+      <PageTransition>
+        <main id="main">
+          <Outlet />
+        </main>
+      </PageTransition>
+      <BackToTop />
     </>
   );
 }
