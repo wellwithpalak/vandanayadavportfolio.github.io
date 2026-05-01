@@ -21,7 +21,11 @@ function BerryBurst() {
   const [berries, setBerries] = useState<Berry[]>([]);
 
   useEffect(() => {
-    const arr: Berry[] = Array.from({ length: 36 }).map((_, i) => ({
+    // Lighter burst — fewer particles, no rotation, GPU-friendly
+    const isMobile =
+      typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches;
+    const count = isMobile ? 10 : 18;
+    const arr: Berry[] = Array.from({ length: count }).map((_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 1.2,
@@ -36,12 +40,11 @@ function BerryBurst() {
       {berries.map((b) => (
         <motion.span
           key={b.id}
-          initial={{ y: "-10vh", x: 0, opacity: 0, rotate: 0 }}
+          initial={{ y: "-10vh", x: 0, opacity: 0 }}
           animate={{
             y: "110vh",
             x: b.drift,
             opacity: [0, 1, 1, 0.8, 0],
-            rotate: 360,
           }}
           transition={{
             duration: 3.2 + Math.random() * 1.4,
