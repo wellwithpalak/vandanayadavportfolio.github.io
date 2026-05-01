@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Menu, X, Briefcase, User, Sparkles, Leaf, Mail, ArrowRight, FileText } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
@@ -12,13 +12,26 @@ const anchorLinks = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="sticky top-0 z-40 backdrop-blur-md bg-background/70 border-b border-border/60"
+      className={`sticky top-0 z-40 backdrop-blur-md transition-all ${
+        scrolled
+          ? "bg-background/85 border-b border-border shadow-[0_8px_24px_-12px_rgba(0,0,0,0.18)]"
+          : "bg-background/60 border-b border-transparent"
+      }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-6 md:py-4">
         <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
@@ -36,17 +49,35 @@ export function Nav() {
             </li>
           ))}
           <li>
-            <Link to="/wellwith" className="text-ink/70 hover:text-coral transition-colors">
+            <Link
+              to="/wellwith"
+              preload="intent"
+              className={`transition-colors ${
+                pathname === "/wellwith" ? "text-coral" : "text-ink/70 hover:text-coral"
+              }`}
+            >
               Wellwith <span className="ml-1 rounded-full bg-coral/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-coral">Experience</span>
             </Link>
           </li>
           <li>
-            <Link to="/resume" className="text-ink/70 hover:text-coral transition-colors">
+            <Link
+              to="/resume"
+              preload="intent"
+              className={`transition-colors ${
+                pathname === "/resume" ? "text-coral" : "text-ink/70 hover:text-coral"
+              }`}
+            >
               Resume
             </Link>
           </li>
           <li>
-            <Link to="/contact" className="text-ink/70 hover:text-ink transition-colors">
+            <Link
+              to="/contact"
+              preload="intent"
+              className={`transition-colors ${
+                pathname === "/contact" ? "text-coral" : "text-ink/70 hover:text-ink"
+              }`}
+            >
               Contact
             </Link>
           </li>
