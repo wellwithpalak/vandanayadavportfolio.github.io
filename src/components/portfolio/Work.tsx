@@ -71,42 +71,53 @@ export function Work() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, i) => (
-            <motion.article
-              key={p.n}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.6, delay: i * 0.05 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-soft"
-            >
-              <div className="flex items-start justify-between">
-                <span className="font-display text-3xl text-ink/30">{p.n}</span>
-                <span className="rounded-full bg-secondary px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-ink/70">
-                  {p.tag}
-                </span>
-              </div>
-              <h3 className="mt-8 font-display text-2xl font-semibold leading-tight text-balance">
-                {p.title}
-              </h3>
-              <p className="mt-3 text-sm text-muted-foreground text-pretty">{p.body}</p>
-              <div className="mt-8 flex items-center justify-between border-t border-border pt-4">
-                <span
-                  className={`text-sm font-semibold ${
-                    p.accent === "coral" ? "text-coral" : p.accent === "mint" ? "text-ink" : "text-ink"
-                  }`}
-                >
-                  {p.metric}
-                </span>
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-cream transition-transform group-hover:rotate-45">
-                  ↗
-                </span>
-              </div>
-              {p.accent === "coral" && (
-                <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-coral/10 blur-2xl" />
-              )}
-            </motion.article>
-          ))}
+          {projects.map((p, i) => {
+            const inner = (
+              <>
+                <div className="flex items-start justify-between">
+                  <span className="font-display text-3xl text-ink/30">{p.n}</span>
+                  <span className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-widest ${p.href ? "bg-coral text-cream" : "bg-secondary text-ink/70"}`}>
+                    {p.tag}
+                  </span>
+                </div>
+                <h3 className="mt-8 font-display text-2xl font-semibold leading-tight text-balance">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground text-pretty">{p.body}</p>
+                <div className="mt-8 flex items-center justify-between border-t border-border pt-4">
+                  <span className={`text-sm font-semibold ${p.accent === "coral" ? "text-coral" : "text-ink"}`}>
+                    {p.metric}
+                  </span>
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-ink text-cream transition-transform group-hover:rotate-45">
+                    ↗
+                  </span>
+                </div>
+                {p.accent === "coral" && (
+                  <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-coral/10 blur-2xl" />
+                )}
+              </>
+            );
+
+            const className = `group relative block overflow-hidden rounded-3xl border ${p.href ? "border-coral/50 ring-1 ring-coral/20" : "border-border"} bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-soft`;
+
+            return (
+              <motion.div
+                key={p.n}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: i * 0.05 }}
+              >
+                {p.href ? (
+                  <Link to={p.href} className={className}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <article className={className}>{inner}</article>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
