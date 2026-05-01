@@ -2,7 +2,6 @@ import { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import {
   Environment,
-  Float,
   OrbitControls,
   PresentationControls,
   useGLTF,
@@ -11,10 +10,8 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-// Default placeholder model — Khronos glTF sample (CC-BY).
-// Swap MODEL_URL with your own .glb (e.g. a Meshy export) once uploaded.
-const MODEL_URL =
-  "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMan/glTF-Binary/CesiumMan.glb";
+// Vandana's custom avatar
+const MODEL_URL = "/models/vandana-avatar.glb";
 
 function AvatarModel() {
   const group = useRef<THREE.Group>(null);
@@ -23,53 +20,25 @@ function AvatarModel() {
   useFrame((state) => {
     if (!group.current) return;
     const t = state.clock.getElapsedTime();
-    group.current.position.y = Math.sin(t * 1.2) * 0.05 - 1.4;
-    group.current.rotation.y =
-      THREE.MathUtils.lerp(group.current.rotation.y, state.pointer.x * 0.4, 0.05);
+    group.current.position.y = Math.sin(t * 1.2) * 0.04;
+    group.current.rotation.y = THREE.MathUtils.lerp(
+      group.current.rotation.y,
+      state.pointer.x * 0.35,
+      0.05,
+    );
   });
 
   return (
-    <group ref={group} position={[0, -1.4, 0]}>
-      <primitive object={scene} scale={1.6} />
+    <group ref={group}>
+      <primitive object={scene} scale={1.8} position={[0, -1.8, 0]} />
     </group>
-  );
-}
-
-function FloatingShapes() {
-  return (
-    <>
-      <Float speed={2} rotationIntensity={1.2} floatIntensity={1.6}>
-        <mesh position={[-1.6, 0.6, -0.5]} castShadow>
-          <torusGeometry args={[0.28, 0.09, 24, 64]} />
-          <meshStandardMaterial color="#ff6a4d" roughness={0.3} metalness={0.1} />
-        </mesh>
-      </Float>
-      <Float speed={1.4} rotationIntensity={0.8} floatIntensity={2}>
-        <mesh position={[1.7, 1, -0.8]} castShadow>
-          <icosahedronGeometry args={[0.32, 0]} />
-          <meshStandardMaterial color="#1a1410" roughness={0.4} />
-        </mesh>
-      </Float>
-      <Float speed={1.8} rotationIntensity={0.6} floatIntensity={1.2}>
-        <mesh position={[1.3, -0.4, 0.4]} castShadow>
-          <boxGeometry args={[0.35, 0.35, 0.35]} />
-          <meshStandardMaterial color="#fde6c8" roughness={0.6} />
-        </mesh>
-      </Float>
-      <Float speed={2.2} rotationIntensity={1} floatIntensity={1.4}>
-        <mesh position={[-1.4, -0.6, 0.6]} castShadow>
-          <sphereGeometry args={[0.18, 32, 32]} />
-          <meshStandardMaterial color="#ff6a4d" roughness={0.2} />
-        </mesh>
-      </Float>
-    </>
   );
 }
 
 function LoadingFallback() {
   return (
     <Html center>
-      <div className="rounded-full bg-card px-4 py-2 text-xs uppercase tracking-widest text-ink/60 shadow-soft">
+      <div className="rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-widest text-white/70 backdrop-blur">
         Loading 3D…
       </div>
     </Html>
@@ -78,40 +47,40 @@ function LoadingFallback() {
 
 export function Avatar3D() {
   return (
-    <div className="relative h-[520px] w-full sm:h-[600px]">
+    <div className="absolute inset-0 h-full w-full">
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: [0, 0.2, 4.2], fov: 35 }}
+        camera={{ position: [0, 0.3, 4.5], fov: 32 }}
         gl={{ antialias: true, alpha: true }}
       >
-        <color attach="background" args={["#00000000"]} />
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.5} />
         <directionalLight
-          position={[3, 5, 2]}
-          intensity={1.2}
+          position={[3, 5, 4]}
+          intensity={1.4}
           castShadow
-          shadow-mapSize={[1024, 1024]}
+          shadow-mapSize={[2048, 2048]}
         />
-        <directionalLight position={[-3, 2, -2]} intensity={0.4} color="#ff6a4d" />
+        <directionalLight position={[-4, 2, -2]} intensity={0.8} color="#ff6a4d" />
+        <directionalLight position={[4, -1, -3]} intensity={0.5} color="#6a8cff" />
 
         <Suspense fallback={<LoadingFallback />}>
           <PresentationControls
             global
-            polar={[-0.2, 0.2]}
-            azimuth={[-0.6, 0.6]}
+            polar={[-0.3, 0.3]}
+            azimuth={[-0.8, 0.8]}
             snap
+            speed={1.4}
           >
             <AvatarModel />
-            <FloatingShapes />
           </PresentationControls>
 
           <ContactShadows
-            position={[0, -1.45, 0]}
-            opacity={0.45}
-            scale={6}
-            blur={2.4}
-            far={3}
+            position={[0, -1.85, 0]}
+            opacity={0.55}
+            scale={8}
+            blur={2.6}
+            far={4}
           />
           <Environment preset="city" />
         </Suspense>
@@ -124,8 +93,7 @@ export function Avatar3D() {
         />
       </Canvas>
 
-      {/* hint */}
-      <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-ink/80 px-3 py-1 text-[10px] uppercase tracking-widest text-cream/80 backdrop-blur">
+      <div className="pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-3 py-1 text-[10px] uppercase tracking-widest text-white/70 backdrop-blur">
         drag to rotate ↔
       </div>
     </div>
