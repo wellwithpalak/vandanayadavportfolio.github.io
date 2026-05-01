@@ -5,6 +5,7 @@ import { Work } from "@/components/portfolio/Work";
 import { About } from "@/components/portfolio/About";
 import { Skills } from "@/components/portfolio/Skills";
 import { VideoMarquee } from "@/components/portfolio/VideoMarquee";
+import { StatsCounter } from "@/components/portfolio/StatsCounter";
 import { Contact, Footer } from "@/components/portfolio/Contact";
 
 export const Route = createFileRoute("/")({
@@ -16,6 +17,7 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
+      <StatsCounter />
       <Work />
       <About />
       <Skills />
@@ -25,4 +27,3 @@ function Index() {
     </main>
   );
 }
-

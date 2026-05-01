@@ -42,7 +42,6 @@ export function MagneticButton({
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className="inline-block"
     >
-      {/* @ts-expect-error polymorphic */}
       <Tag
         ref={ref as never}
         href={href}
