@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { GroundWorkMarquee } from "@/components/portfolio/GroundWorkMarquee";
 
 export const Route = createFileRoute("/wellwith")({
   head: () => ({
@@ -189,7 +190,9 @@ function WellwithPage() {
         </section>
 
         {/* CTA */}
-        <section className="relative mx-auto max-w-4xl px-6 pb-32 text-center">
+        <GroundWorkMarquee />
+
+        <section className="relative mx-auto max-w-4xl px-6 pb-32 pt-24 text-center">
           <h3 className="font-display text-4xl font-700 md:text-5xl">
             Want a brand journey like this?
           </h3>

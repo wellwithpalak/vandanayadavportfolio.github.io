@@ -37,7 +37,7 @@ export function Nav() {
           ))}
           <li>
             <Link to="/wellwith" className="text-ink/70 hover:text-coral transition-colors">
-              Wellwith
+              Wellwith <span className="ml-1 rounded-full bg-coral/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-coral">Experience</span>
             </Link>
           </li>
           <li>
@@ -118,6 +118,9 @@ export function Nav() {
                     >
                       <Leaf className="h-4 w-4 text-coral" />
                       Wellwith
+                      <span className="ml-auto rounded-full bg-coral/20 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-coral">
+                        Experience
+                      </span>
                     </Link>
                   </li>
                   <li>
