@@ -37,7 +37,7 @@ function AvatarModel() {
   return (
     <group ref={group}>
       <Float speed={1.2} rotationIntensity={0.15} floatIntensity={0.4}>
-        <primitive object={scene} scale={2.1} position={[0, -2.6, 0]} />
+        <primitive object={scene} scale={1.7} position={[0, -1.55, 0]} />
       </Float>
     </group>
   );
