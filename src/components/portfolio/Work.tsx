@@ -4,19 +4,20 @@ import { Link } from "@tanstack/react-router";
 const projects = [
   {
     n: "01",
-    tag: "AI / Generative",
+    tag: "AI · Marketing",
     title: "AI-Powered Marketing Suite",
-    body: "An LLM-driven workflow that ships ad copy and Midjourney visuals for B2B healthcare campaigns — cutting content turnaround by 40%.",
+    body: "Generative AI workflow that ships ad creative and visuals for B2B healthcare campaigns — cutting content turnaround by 40%.",
     metric: "−40% turnaround",
     accent: "coral",
   },
   {
     n: "02",
-    tag: "Content & Video",
-    title: "Brand Storytelling Series",
-    body: "Short-form educational videos for Wellwith, edited in CapCut. Drove a step-change in organic engagement across social channels.",
-    metric: "Organic lift",
-    accent: "ink",
+    tag: "Featured · Wellwith",
+    title: "Wellwith — Seabuckthorn Brand Journey",
+    body: "End-to-end marketing for the Wellwith Seabuckthorn brand — strategy, reels, AI creative, and an engaged Instagram health community.",
+    metric: "Open journey →",
+    accent: "coral",
+    href: "/wellwith",
   },
   {
     n: "03",
