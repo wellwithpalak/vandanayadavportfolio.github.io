@@ -224,13 +224,6 @@
     transform: scale(0.97);
     transition: transform 80ms ease-out;
   }
-  /* Hide native cursor on desktop when custom cursor is active */
-  @media (hover: hover) and (pointer: fine) {
-    html.has-custom-cursor,
-    html.has-custom-cursor * {
-      cursor: none !important;
-    }
-  }
   /* Smoother scroll */
   html { scroll-behavior: smooth; }
   /* Prevent horizontal overflow on mobile */
