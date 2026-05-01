@@ -11,10 +11,10 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 
-// Free, CC-licensed sample avatar (Khronos glTF sample assets)
+// Default placeholder model — Khronos glTF sample (CC-BY).
+// Swap MODEL_URL with your own .glb (e.g. a Meshy export) once uploaded.
 const MODEL_URL =
-  "https://models.readyplayer.me/64bfa15f0e72c63d7c3934a6.glb";
-// Fallback: if the model fails to load, we render an abstract 3D scene.
+  "https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/CesiumMan/glTF-Binary/CesiumMan.glb";
 
 function AvatarModel() {
   const group = useRef<THREE.Group>(null);
