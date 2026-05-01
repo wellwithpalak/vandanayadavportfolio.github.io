@@ -32,12 +32,12 @@ export function Contact() {
             vandana@example.com →
           </a>
           <a
-            href="https://www.linkedin.com"
+            href="https://www.youtube.com/@indianbhaktiaisongs"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-ink/40 bg-coral-soft/40 px-8 py-4 text-sm font-semibold text-ink hover:border-ink transition-colors"
           >
-            LinkedIn
+            YouTube channel
           </a>
         </div>
 
