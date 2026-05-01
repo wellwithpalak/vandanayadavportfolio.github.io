@@ -83,7 +83,7 @@ export function Avatar3D() {
       <Canvas
         shadows
         dpr={[1, 2]}
-        camera={{ position: [0, 0.1, 3.6], fov: 30 }}
+        camera={{ position: [0, 0.2, 4.2], fov: 32 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         onCreated={({ gl }) => {
           gl.domElement.addEventListener("webglcontextlost", () => setFailed(true));
@@ -108,7 +108,7 @@ export function Avatar3D() {
             color="#ff8a65"
           />
 
-          <ContactShadows position={[0, -2.65, 0]} opacity={0.55} scale={8} blur={2.6} far={4} />
+          <ContactShadows position={[0, -1.6, 0]} opacity={0.55} scale={8} blur={2.6} far={4} />
           <Environment preset="city" />
         </Suspense>
       </Canvas>
