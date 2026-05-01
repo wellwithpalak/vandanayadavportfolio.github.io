@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Download, ArrowLeft, Mail, MapPin } from "lucide-react";
 import { resumeData as r } from "@/lib/resume-data";
 import { generateResumePDF } from "@/lib/generate-resume-pdf";
+import realPhoto from "@/assets/vandana-real.jpg";
 
 export const Route = createFileRoute("/resume")({
   head: () => ({
@@ -51,23 +52,33 @@ function ResumePage() {
           transition={{ duration: 0.6 }}
           className="rounded-3xl border border-cream/10 bg-gradient-to-br from-coral/15 via-cream/[0.02] to-transparent p-6 md:p-10"
         >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-coral">
-            Resume
-          </p>
-          <h1 className="mt-3 font-display text-4xl font-700 leading-[0.95] md:text-6xl">
-            {r.name}
-          </h1>
-          <p className="mt-3 text-base text-cream/75 md:text-lg">{r.title}</p>
-          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-xs text-cream/60 md:text-sm">
-            <span className="inline-flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5" /> {r.location}
-            </span>
-            <a
-              href={`mailto:${r.email}`}
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-coral"
-            >
-              <Mail className="h-3.5 w-3.5" /> {r.email}
-            </a>
+          <div className="flex flex-col items-center gap-6 md:flex-row md:items-center md:gap-8">
+            <img
+              src={realPhoto}
+              alt="Vandana Yadav"
+              loading="eager"
+              className="h-32 w-32 shrink-0 rounded-full border-2 border-coral/60 object-cover shadow-xl shadow-coral/20 md:h-40 md:w-40"
+            />
+            <div className="text-center md:text-left">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-coral">
+                Resume
+              </p>
+              <h1 className="mt-2 font-display text-4xl font-700 leading-[0.95] md:text-6xl">
+                {r.name}
+              </h1>
+              <p className="mt-3 text-base text-cream/75 md:text-lg">{r.title}</p>
+              <div className="mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-cream/60 md:justify-start md:text-sm">
+                <span className="inline-flex items-center gap-1.5">
+                  <MapPin className="h-3.5 w-3.5" /> {r.location}
+                </span>
+                <a
+                  href={`mailto:${r.email}`}
+                  className="inline-flex items-center gap-1.5 transition-colors hover:text-coral"
+                >
+                  <Mail className="h-3.5 w-3.5" /> {r.email}
+                </a>
+              </div>
+            </div>
           </div>
         </motion.header>
 
@@ -160,24 +171,6 @@ function ResumePage() {
               </span>
             </div>
           ))}
-        </Section>
-
-        {/* Links */}
-        <Section title="Links">
-          <ul className="space-y-2">
-            {r.links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-coral hover:underline"
-                >
-                  → {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </Section>
 
         {/* Sticky download — mobile */}

@@ -155,23 +155,6 @@ export function generateResumePDF() {
     y += 16;
   });
 
-  // Links
-  section("Links");
-  r.links.forEach((l) => {
-    if (y > H - 50) {
-      doc.addPage();
-      y = M;
-    }
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(9.5);
-    doc.setTextColor(...ink);
-    doc.text(`${l.label}:`, M, y);
-    doc.setFont("helvetica", "normal");
-    doc.setTextColor(...coral);
-    doc.textWithLink(l.href, M + 110, y, { url: l.href });
-    y += 14;
-  });
-
   // Footer
   const pages = doc.getNumberOfPages();
   for (let i = 1; i <= pages; i++) {
