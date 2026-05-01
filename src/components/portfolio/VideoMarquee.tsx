@@ -132,10 +132,11 @@ export function VideoMarquee() {
             {/* Video */}
             <motion.div
               key={activeIdx}
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.25 }}
-              className="relative w-full max-w-md overflow-hidden rounded-2xl border border-cream/10 bg-black md:max-w-lg"
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative mx-auto flex aspect-[9/16] max-h-[78svh] w-auto items-center justify-center overflow-hidden rounded-2xl border border-cream/10 bg-black shadow-[0_30px_80px_-10px_rgba(255,106,77,0.35)]"
               onClick={(e) => e.stopPropagation()}
             >
               <video
@@ -144,7 +145,7 @@ export function VideoMarquee() {
                 controls
                 autoPlay
                 playsInline
-                className="aspect-[9/16] h-auto w-full object-contain"
+                className="h-full w-full object-cover"
               />
             </motion.div>
 
