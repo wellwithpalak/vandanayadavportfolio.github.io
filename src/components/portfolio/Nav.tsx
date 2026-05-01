@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 const links = [
   { href: "#work", label: "Work" },
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -28,14 +28,24 @@ export function Nav() {
               </a>
             </li>
           ))}
+          <li>
+            <Link to="/wellwith" className="text-ink/70 hover:text-coral transition-colors">
+              Wellwith
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="text-ink/70 hover:text-ink transition-colors">
+              Contact
+            </Link>
+          </li>
         </ul>
-        <a
-          href="#contact"
+        <Link
+          to="/contact"
           className="hidden md:inline-flex items-center gap-2 rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-cream hover:bg-ink/90 transition-colors"
         >
           Let's talk
           <span aria-hidden>→</span>
-        </a>
+        </Link>
       </nav>
     </motion.header>
   );

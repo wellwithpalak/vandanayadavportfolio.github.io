@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 
 export function Contact() {
   return (
@@ -20,24 +21,22 @@ export function Contact() {
           transition={{ duration: 0.7 }}
           className="mt-4 font-display text-[clamp(3rem,8vw,7rem)] font-700 leading-[0.9] text-balance"
         >
-          Need a leader who<br />
+          Need a marketing leader who<br />
           <span className="italic">actually</span> ships?
         </motion.h2>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="mailto:vandana@example.com"
+          <Link
+            to="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
           >
-            vandana@example.com →
-          </a>
+            Open contact page →
+          </Link>
           <a
-            href="https://www.youtube.com/@indianbhaktiaisongs"
-            target="_blank"
-            rel="noreferrer"
+            href="mailto:vy3638017@gmail.com"
             className="inline-flex items-center gap-2 rounded-full border border-ink/40 bg-coral-soft/40 px-8 py-4 text-sm font-semibold text-ink hover:border-ink transition-colors"
           >
-            YouTube channel
+            vy3638017@gmail.com
           </a>
         </div>
 
