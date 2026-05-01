@@ -107,9 +107,9 @@ function RootComponent() {
       <ScrollProgress />
       <SkipToContent />
       <PageTransition>
-        <main id="main">
+        <div id="main">
           <Outlet />
-        </main>
+        </div>
       </PageTransition>
       <BackToTop />
     </>
