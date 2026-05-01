@@ -131,7 +131,7 @@ function WellwithPage() {
         </div>
 
         {/* Hero */}
-        <section className="relative mx-auto max-w-6xl px-6 pt-20 pb-24 text-center md:pt-32">
+        <section className="relative mx-auto max-w-6xl px-5 pt-12 pb-16 text-center md:px-6 md:pt-32 md:pb-24">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ function WellwithPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="mt-6 font-display text-5xl font-700 leading-[0.95] text-balance md:text-7xl lg:text-8xl"
+            className="mt-5 font-display text-4xl font-700 leading-[1] text-balance sm:text-5xl md:text-7xl lg:text-8xl"
           >
             The Seabuckthorn{" "}
             <span className="bg-gradient-to-r from-amber-300 via-orange-400 to-red-500 bg-clip-text text-transparent">
@@ -155,7 +155,7 @@ function WellwithPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25 }}
-            className="mx-auto mt-8 max-w-2xl text-lg text-cream/75 text-pretty"
+            className="mx-auto mt-6 max-w-2xl text-base text-cream/75 text-pretty md:text-lg"
           >
             How a Himalayan berry became a modern wellness brand — through marketing
             strategy, content, reels and AI-powered creative leadership.
@@ -163,8 +163,8 @@ function WellwithPage() {
         </section>
 
         {/* Journey timeline */}
-        <section className="relative mx-auto max-w-5xl px-6 pb-24">
-          <div className="space-y-6">
+        <section className="relative mx-auto max-w-5xl px-5 pb-16 md:px-6 md:pb-24">
+          <div className="space-y-4 md:space-y-6">
             {journey.map((step, i) => (
               <motion.article
                 key={step.phase}
@@ -172,17 +172,17 @@ function WellwithPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: i * 0.05 }}
-                className="group relative overflow-hidden rounded-3xl border border-orange-300/15 bg-cream/[0.04] p-8 backdrop-blur md:p-10"
+                className="group relative overflow-hidden rounded-2xl border border-orange-300/15 bg-cream/[0.04] p-6 backdrop-blur md:rounded-3xl md:p-10"
               >
                 <div className="flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
                   <p className="text-xs font-semibold uppercase tracking-[0.25em] text-orange-300">
                     {String(i + 1).padStart(2, "0")} · {step.phase}
                   </p>
                 </div>
-                <h2 className="mt-4 font-display text-3xl font-semibold leading-tight text-cream md:text-4xl">
+                <h2 className="mt-3 font-display text-2xl font-semibold leading-tight text-cream md:text-4xl">
                   {step.title}
                 </h2>
-                <p className="mt-4 max-w-3xl text-cream/75 text-pretty">{step.body}</p>
+                <p className="mt-3 max-w-3xl text-sm text-cream/75 text-pretty md:text-base">{step.body}</p>
                 <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-orange-500/10 blur-3xl transition-opacity group-hover:opacity-100" />
               </motion.article>
             ))}
