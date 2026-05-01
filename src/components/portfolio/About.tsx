@@ -32,24 +32,24 @@ export function About() {
           </h2>
           <div className="mt-8 space-y-5 text-cream/80 text-lg max-w-2xl text-pretty">
             <p>
-              Two-plus years in, I've already managed teams of 153, trained over 1,500
-              people, and built operating systems that make growth feel boring — in the
+              Three-plus years in, I've already led teams of 153, trained over 1,500
+              people, and built marketing systems that make growth feel boring — in the
               best possible way.
             </p>
             <p>
               My MBA in Finance keeps the numbers honest. My obsession with creative
-              tools — LLMs, Midjourney, CapCut — keeps the storytelling sharp. The
-              combination is where I do my best work: B2B and B2C brands that need
-              clarity, momentum, and a leader who can do both the spreadsheet and the
-              stage.
+              tools — AI generative platforms and CapCut — keeps the storytelling
+              sharp. The combination is where I do my best work: B2B and B2C brands
+              that need clarity, momentum, and a marketing leader who can do both the
+              spreadsheet and the stage.
             </p>
           </div>
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { k: "MBA", v: "Finance" },
-              { k: "2+ yrs", v: "experience" },
-              { k: "B2B / B2C", v: "communications" },
+              { k: "3+ yrs", v: "experience" },
+              { k: "B2B / B2C", v: "marketing" },
               { k: "Delhi", v: "based · global" },
             ].map((c) => (
               <div key={c.k} className="rounded-xl border border-cream/10 bg-cream/5 px-4 py-3">
