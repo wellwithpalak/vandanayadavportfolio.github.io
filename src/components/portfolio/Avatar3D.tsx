@@ -100,7 +100,6 @@ export function Avatar3D() {
             global
             polar={[-0.2, 0.2]}
             azimuth={[-0.6, 0.6]}
-            config={{ mass: 2, tension: 400 }}
             snap
           >
             <AvatarModel />
