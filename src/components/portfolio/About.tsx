@@ -19,8 +19,8 @@ export function About() {
           <div className="flex items-center gap-4 rounded-2xl border border-cream/10 bg-cream/5 p-4">
             <img src={avatarImg} alt="Avatar" className="h-14 w-14 rounded-full object-cover" />
             <div>
-              <p className="font-display text-lg leading-tight">Vandana Yadav</p>
-              <p className="text-xs text-cream/60">MBA · Finance · Delhi, IN</p>
+              <p className="font-display text-lg leading-tight">Vandanaa Yadav</p>
+              <p className="text-xs text-cream/60">AI Creator · Video Editor · Delhi, IN</p>
             </div>
           </div>
         </div>
@@ -28,28 +28,41 @@ export function About() {
         <div className="lg:col-span-7 flex flex-col justify-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-coral">About</p>
           <h2 className="mt-3 font-display text-5xl md:text-6xl font-700 leading-[1.05] text-balance">
-            High energy.<br />Higher standards.
+            Creator first.<br />Strategist always.
           </h2>
           <div className="mt-8 space-y-5 text-cream/80 text-lg max-w-2xl text-pretty">
             <p>
-              Three-plus years in, I've already led teams of 153, trained over 1,500
-              people, and built marketing systems that make growth feel boring — in the
-              best possible way.
+              I'm a creator who lives at the intersection of <span className="text-coral">video editing</span>,
+              <span className="text-coral"> AI content</span> and <span className="text-coral">B2B strategy</span>.
+              From cinematic reels in CapCut to AI-powered campaigns and prompt-engineered workflows,
+              I help brands and creators move from idea to viral output.
             </p>
             <p>
-              My MBA in Finance keeps the numbers honest. My obsession with creative
-              tools — AI generative platforms and CapCut — keeps the storytelling
-              sharp. The combination is where I do my best work: B2B and B2C brands
-              that need clarity, momentum, and a marketing leader who can do both the
-              spreadsheet and the stage.
+              Video editing, generative AI, personal branding and content marketing —
+              shipped with the rigor of a strategist and the eye of a storyteller.
             </p>
           </div>
 
+          {/* Visual storytelling timeline */}
+          <ol className="mt-10 relative border-l border-cream/15 pl-6 space-y-6">
+            {[
+              { k: "Now", v: "AI content + cinematic video editing for brands & creators" },
+              { k: "Lately", v: "CapCut reels, motion graphics, prompt-engineered workflows" },
+              { k: "Always", v: "B2B strategy, personal branding, content marketing" },
+            ].map((t) => (
+              <li key={t.k} className="relative">
+                <span className="absolute -left-[31px] top-1 grid h-4 w-4 place-items-center rounded-full bg-coral ring-4 ring-ink" />
+                <p className="font-display text-sm uppercase tracking-[0.2em] text-coral">{t.k}</p>
+                <p className="text-cream/80">{t.v}</p>
+              </li>
+            ))}
+          </ol>
+
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { k: "MBA", v: "Finance" },
-              { k: "3+ yrs", v: "experience" },
-              { k: "B2B / B2C", v: "marketing" },
+              { k: "Video", v: "editor" },
+              { k: "CapCut", v: "expert" },
+              { k: "AI", v: "creator" },
               { k: "Delhi", v: "based · global" },
             ].map((c) => (
               <div key={c.k} className="rounded-xl border border-cream/10 bg-cream/5 px-4 py-3">
