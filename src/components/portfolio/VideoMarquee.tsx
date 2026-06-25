@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const videos = [
-  { src: "/videos/project-1.mp4", title: "Wellwith — brand reel" },
-  { src: "/videos/project-2.mp4", title: "AI marketing campaign" },
-  { src: "/videos/project-3.mp4", title: "Leadership Hub training" },
-  { src: "/videos/project-4.mp4", title: "Content & creative work" },
+  { src: "/videos/project-1.mp4", title: "Featured edit — cinematic reel" },
+  { src: "/videos/project-2.mp4", title: "CapCut showcase" },
+  { src: "/videos/project-3.mp4", title: "AI-generated video project" },
+  { src: "/videos/project-4.mp4", title: "Short-form storytelling" },
 ];
 
 export function VideoMarquee() {
@@ -56,11 +56,25 @@ export function VideoMarquee() {
       className="relative overflow-hidden bg-ink py-12 md:py-14 border-y border-cream/10"
     >
       <div className="mx-auto mb-6 max-w-7xl px-6 md:mb-8">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-coral">In motion</p>
-        <h2 className="mt-2 font-display text-2xl md:text-4xl text-cream font-700">
-          Live reel of recent work
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="rounded-full bg-coral px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-ink">⭐ Video Editor</span>
+          <span className="rounded-full bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-cream">⭐ CapCut Expert</span>
+          <span className="rounded-full bg-cream/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-cream">⭐ AI Creator</span>
+        </div>
+        <h2 className="mt-3 font-display text-3xl md:text-5xl text-cream font-700">
+          Video Showcase
         </h2>
-        <p className="mt-2 text-sm text-cream/60">Tap any reel to play with sound.</p>
+        <p className="mt-2 text-sm text-cream/70 max-w-xl">
+          Creative edits, storytelling projects, and AI-enhanced video production. Tap any reel to play full-screen with sound.
+        </p>
+        <a
+          href="https://www.instagram.com/vaandana.yadav"
+          target="_blank"
+          rel="noreferrer"
+          className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-tr from-fuchsia-600 via-pink-500 to-amber-400 px-4 py-2 text-xs font-semibold text-white shadow-lg hover:-translate-y-0.5 transition-transform"
+        >
+          Follow my creative journey — @vaandana.yadav ↗
+        </a>
       </div>
 
       <div
