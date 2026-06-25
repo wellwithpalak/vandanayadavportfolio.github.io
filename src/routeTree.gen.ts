@@ -10,18 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WellwithRouteImport } from './routes/wellwith'
-import { Route as ResumeRouteImport } from './routes/resume'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WellwithRoute = WellwithRouteImport.update({
   id: '/wellwith',
   path: '/wellwith',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResumeRoute = ResumeRouteImport.update({
-  id: '/resume',
-  path: '/resume',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -38,34 +32,30 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/resume': typeof ResumeRoute
   '/wellwith': typeof WellwithRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/resume': typeof ResumeRoute
   '/wellwith': typeof WellwithRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
-  '/resume': typeof ResumeRoute
   '/wellwith': typeof WellwithRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/resume' | '/wellwith'
+  fullPaths: '/' | '/contact' | '/wellwith'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/resume' | '/wellwith'
-  id: '__root__' | '/' | '/contact' | '/resume' | '/wellwith'
+  to: '/' | '/contact' | '/wellwith'
+  id: '__root__' | '/' | '/contact' | '/wellwith'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
-  ResumeRoute: typeof ResumeRoute
   WellwithRoute: typeof WellwithRoute
 }
 
@@ -76,13 +66,6 @@ declare module '@tanstack/react-router' {
       path: '/wellwith'
       fullPath: '/wellwith'
       preLoaderRoute: typeof WellwithRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/resume': {
-      id: '/resume'
-      path: '/resume'
-      fullPath: '/resume'
-      preLoaderRoute: typeof ResumeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -105,18 +88,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
-  ResumeRoute: ResumeRoute,
   WellwithRoute: WellwithRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
