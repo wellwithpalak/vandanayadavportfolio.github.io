@@ -6,8 +6,8 @@ import { GroundWorkMarquee } from "@/components/portfolio/GroundWorkMarquee";
 export const Route = createFileRoute("/wellwith")({
   head: () => ({
     meta: [
-      { title: "Wellwith — Seabuckthorn Brand Journey · Vandana Yadav" },
-      { name: "description", content: "Vandana Yadav's complete marketing & content journey leading the Wellwith Seabuckthorn health brand — strategy, storytelling, reels, and growth." },
+      { title: "Wellwith — Seabuckthorn Brand Journey · Vandanaa Yadav" },
+      { name: "description", content: "Vandanaa Yadav's complete marketing & content journey leading the Wellwith Seabuckthorn health brand — strategy, storytelling, reels, and growth." },
       { property: "og:title", content: "Wellwith — Seabuckthorn Brand Journey" },
       { property: "og:description", content: "End-to-end marketing journey behind the Wellwith Seabuckthorn brand." },
     ],

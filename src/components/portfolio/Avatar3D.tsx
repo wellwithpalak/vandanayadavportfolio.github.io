@@ -59,7 +59,7 @@ function Avatar2D() {
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[60vmin] w-[60vmin] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-coral/20 blur-3xl" />
       <img
         src={avatar2D}
-        alt="Vandana Yadav portrait"
+        alt="Vandanaa Yadav portrait"
         className="relative z-10 h-[78%] w-auto max-w-[90%] object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] md:h-[88%]"
         loading="eager"
       />
