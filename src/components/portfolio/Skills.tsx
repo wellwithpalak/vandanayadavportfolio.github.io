@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { Sparkles, Film, Scissors } from "lucide-react";
 
 const skills = [
+  { title: "Video Editing", items: ["Reels editing", "YouTube editing", "Shorts editing", "Storytelling", "Motion graphics", "Visual branding"] },
+  { title: "Generative AI", items: ["ChatGPT", "Gemini", "Midjourney", "Runway", "Kling", "Canva AI", "CapCut AI"] },
   { title: "Marketing Strategy", items: ["B2B & B2C funnels", "Brand positioning", "Campaign planning", "Growth playbooks"] },
-  { title: "AI-Powered Content", items: ["Generative ad creative", "Visual ideation", "Content automation", "Prompt systems"] },
-  { title: "Video & Reels", items: ["CapCut editing", "Short-form storytelling", "Hooks & captions", "Brand reels"] },
   { title: "Brand Storytelling", items: ["Voice & narrative", "Audience research", "Visual brochures", "Launch communications"] },
-  { title: "Sales & Growth", items: ["KPI ownership", "Onboarding playbooks", "Client comms", "Pipeline strategy"] },
-  { title: "Leadership", items: ["153+ team", "1,500+ trained", "Public speaking", "Training design"] },
+  { title: "Prompt Engineering", items: ["Prompt systems", "AI workflows", "Content automation", "Creative scaling"] },
+  { title: "Personal Branding", items: ["Creator positioning", "Voice & tone", "Content pillars", "Audience growth"] },
 ];
 
 export function Skills() {
@@ -17,8 +18,35 @@ export function Skills() {
         <div className="mb-14 max-w-2xl">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-coral">Skill stack</p>
           <h2 className="mt-3 font-display text-5xl md:text-6xl font-700 tracking-tight">
-            A marketing toolkit built for <span className="italic">modern</span> brands.
+            A creator toolkit built for <span className="italic">modern</span> brands.
           </h2>
+        </div>
+
+        {/* Featured CapCut card */}
+        <div className="mb-8 relative overflow-hidden rounded-3xl border-2 border-coral/60 bg-gradient-to-br from-ink via-[#1a1a1a] to-coral/30 p-8 shadow-[0_20px_60px_-20px_rgba(255,107,74,0.5)]">
+          <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-coral/40 blur-3xl animate-pulse" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.12)_50%,transparent_70%)] bg-[length:200%_100%] animate-[shine_3s_linear_infinite]" />
+          <style>{`@keyframes shine{0%{background-position:200% 0}100%{background-position:-200% 0}}`}</style>
+          <div className="relative grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-coral px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-ink">
+                <Sparkles className="h-3 w-3" /> Featured · CapCut Expert
+              </span>
+              <h3 className="mt-4 font-display text-4xl md:text-5xl font-700 text-cream">
+                CapCut <span className="bg-gradient-to-r from-coral to-amber-300 bg-clip-text text-transparent">Mastery</span>
+              </h3>
+              <p className="mt-3 text-cream/75 max-w-md">
+                Advanced editing pipeline for viral short-form content — from raw clips to export.
+              </p>
+            </div>
+            <ul className="grid grid-cols-2 gap-3">
+              {["Advanced Transitions", "AI Effects", "Auto Captions", "Viral Editing", "Motion Tracking", "Pro Export Workflow"].map((i) => (
+                <li key={i} className="flex items-center gap-2 rounded-xl border border-cream/15 bg-cream/5 px-3 py-2.5 text-sm text-cream backdrop-blur transition-all hover:border-coral hover:-translate-y-0.5">
+                  <Scissors className="h-3.5 w-3.5 text-coral" /> {i}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
