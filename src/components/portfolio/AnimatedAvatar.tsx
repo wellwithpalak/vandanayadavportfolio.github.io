@@ -17,7 +17,7 @@ export function AnimatedAvatar() {
       {/* Floating avatar — single fade-in, then CSS-only float */}
       <motion.img
         src={avatar}
-        alt="Vandana Yadav portrait"
+        alt="Vandanaa Yadav portrait"
         loading="eager"
         decoding="async"
         fetchPriority="high"

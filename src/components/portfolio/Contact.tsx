@@ -1,13 +1,16 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, Instagram, Mail } from "lucide-react";
+
+const EMAIL = "vandanaayadavwork@gmail.com";
+const INSTAGRAM = "https://www.instagram.com/vaandana.yadav";
 
 export function Contact() {
   const [copied, setCopied] = useState(false);
   const copyEmail = async () => {
     try {
-      await navigator.clipboard.writeText("vy3638017@gmail.com");
+      await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {}
@@ -55,10 +58,18 @@ export function Contact() {
               </>
             ) : (
               <>
-                <Copy className="h-4 w-4" /> vy3638017@gmail.com
+                <Mail className="h-4 w-4" /> {EMAIL}
               </>
             )}
           </button>
+          <a
+            href={INSTAGRAM}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-gradient-to-tr from-fuchsia-600 via-pink-500 to-amber-400 px-8 py-4 text-sm font-semibold text-white shadow-lg transition-transform hover:-translate-y-0.5"
+          >
+            <Instagram className="h-4 w-4" /> @vaandana.yadav
+          </a>
         </div>
 
         <p className="mt-10 text-sm text-ink/70">Based in Delhi · Open to remote and on-site engagements</p>
@@ -73,10 +84,10 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-6 md:grid-cols-3">
         <div>
           <p className="font-display text-2xl font-700 text-cream">
-            Vandana<span className="text-coral">.</span>
+            Vandanaa<span className="text-coral">.</span>
           </p>
           <p className="mt-2 text-sm">
-            MBA Finance · B2B Marketing Strategist building AI-driven brand systems from Delhi.
+            AI Content Creator · Video Editor · CapCut Expert · B2B Strategist · Prompt Engineer — based in Delhi.
           </p>
         </div>
         <div>
@@ -86,7 +97,7 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             <li><Link to="/" className="hover:text-coral">Home</Link></li>
             <li><Link to="/wellwith" className="hover:text-coral">Wellwith — Experience</Link></li>
-            <li><Link to="/resume" className="hover:text-coral">Resume</Link></li>
+            <li><a href="/#reels" className="hover:text-coral">Video Showcase</a></li>
             <li><Link to="/contact" className="hover:text-coral">Contact</Link></li>
           </ul>
         </div>
@@ -97,12 +108,12 @@ export function Footer() {
           <ul className="mt-3 space-y-2 text-sm">
             <li>
               <a
-                href="https://www.instagram.com/seabuckthorn.wellwith/"
+                href={INSTAGRAM}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-coral"
+                className="hover:text-coral inline-flex items-center gap-2"
               >
-                Instagram — @seabuckthorn.wellwith ↗
+                <Instagram className="h-4 w-4" /> @vaandana.yadav ↗
               </a>
             </li>
             <li>
@@ -116,15 +127,15 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:vy3638017@gmail.com" className="hover:text-coral">
-                vy3638017@gmail.com
+              <a href={`mailto:${EMAIL}`} className="hover:text-coral">
+                {EMAIL}
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div className="mx-auto mt-10 flex max-w-7xl flex-col items-center justify-between gap-2 border-t border-cream/10 px-6 pt-6 text-xs text-cream/50 md:flex-row">
-        <p>© {new Date().getFullYear()} Vandana Yadav. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Vandanaa Yadav. All rights reserved.</p>
         <p className="font-display">Designed with rigor. Shipped with energy.</p>
       </div>
     </footer>

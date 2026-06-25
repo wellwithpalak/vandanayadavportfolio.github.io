@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Briefcase, User, Sparkles, Leaf, Mail, ArrowRight, FileText } from "lucide-react";
+import { Menu, X, Briefcase, User, Sparkles, Leaf, Mail, ArrowRight, Film } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 
 const anchorLinks = [
   { href: "#work", label: "Work", icon: Briefcase },
   { href: "#about", label: "About", icon: User },
   { href: "#skills", label: "Skills", icon: Sparkles },
+  { href: "#reels", label: "Video Showcase", icon: Film },
 ];
 
 export function Nav() {
@@ -36,7 +37,7 @@ export function Nav() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 md:px-6 md:py-4">
         <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight">
           <span className="grid h-8 w-8 place-items-center rounded-full bg-ink text-cream font-sans text-sm">V</span>
-          Vandana<span className="text-coral">.</span>
+          Vandanaa<span className="text-coral">.</span>
         </a>
 
         {/* Desktop links */}
@@ -57,17 +58,6 @@ export function Nav() {
               }`}
             >
               Wellwith <span className="ml-1 rounded-full bg-coral/15 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-coral">Experience</span>
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/resume"
-              preload="intent"
-              className={`transition-colors ${
-                pathname === "/resume" ? "text-coral" : "text-ink/70 hover:text-coral"
-              }`}
-            >
-              Resume
             </Link>
           </li>
           <li>
@@ -112,7 +102,7 @@ export function Nav() {
             <div className="flex h-full flex-col">
               <div className="flex items-center justify-between px-5 py-4 border-b border-cream/10">
                 <span className="font-display text-lg font-semibold">
-                  Vandana<span className="text-coral">.</span>
+                  Vandanaa<span className="text-coral">.</span>
                 </span>
                 <button
                   type="button"
@@ -156,16 +146,6 @@ export function Nav() {
                   </li>
                   <li>
                     <Link
-                      to="/resume"
-                      onClick={() => setOpen(false)}
-                      className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-cream/85 hover:bg-cream/5 hover:text-coral"
-                    >
-                      <FileText className="h-4 w-4 text-coral" />
-                      Resume
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       to="/contact"
                       onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-cream/85 hover:bg-cream/5 hover:text-cream"
@@ -187,7 +167,7 @@ export function Nav() {
                   <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
                 <p className="mt-3 text-center text-[10px] uppercase tracking-[0.25em] text-cream/40">
-                  Marketing · AI · Brand strategy
+                  AI Content · Video Editing · B2B Strategy
                 </p>
               </div>
             </div>
