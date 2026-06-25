@@ -5,16 +5,17 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Vandana Yadav · B2B Marketing & AI Strategy" },
-      { name: "description", content: "Get in touch with Vandana Yadav for B2B marketing strategy, AI-powered content, brand storytelling and growth leadership engagements." },
-      { property: "og:title", content: "Contact Vandana Yadav" },
-      { property: "og:description", content: "Marketing strategy, AI-powered content, brand storytelling — let's build something." },
+      { title: "Contact — Vandanaa Yadav · AI Content Creator & Video Editor" },
+      { name: "description", content: "Get in touch with Vandanaa Yadav for AI content creation, video editing, CapCut production, prompt engineering and B2B strategy engagements." },
+      { property: "og:title", content: "Contact Vandanaa Yadav" },
+      { property: "og:description", content: "AI content, cinematic video editing, prompt engineering and B2B strategy — let's build something." },
     ],
   }),
   component: ContactPage,
 });
 
-const EMAIL = "vy3638017@gmail.com";
+const EMAIL = "vandanaayadavwork@gmail.com";
+const INSTAGRAM = "https://www.instagram.com/vaandana.yadav";
 
 function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -23,7 +24,7 @@ function ContactPage() {
     e.preventDefault();
     const subject = encodeURIComponent(form.subject || `Project enquiry from ${form.name}`);
     const body = encodeURIComponent(
-      `Hi Vandana,\n\n${form.message}\n\n— ${form.name}\n${form.email}`
+      `Hi Vandanaa,\n\n${form.message}\n\n— ${form.name}\n${form.email}`
     );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
   };
@@ -64,8 +65,8 @@ function ContactPage() {
               Get in <span className="italic text-coral">touch</span>.
             </motion.h1>
             <p className="mt-6 max-w-md text-lg text-ink/70 text-pretty">
-              For marketing strategy, AI-powered content, brand storytelling and
-              growth leadership engagements.
+              For AI content creation, cinematic video editing, CapCut production,
+              prompt engineering and B2B strategy engagements.
             </p>
 
             <div className="mt-12 space-y-6">
@@ -87,14 +88,14 @@ function ContactPage() {
               </div>
 
               <a
-                href="https://www.instagram.com/seabuckthorn.wellwith/"
+                href={INSTAGRAM}
                 target="_blank"
                 rel="noreferrer"
                 className="group flex items-center justify-between rounded-2xl border border-ink/15 bg-white p-5 transition-all hover:border-coral hover:-translate-y-0.5"
               >
                 <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink/50">Featured brand</p>
-                  <p className="mt-1 font-display text-xl font-semibold">@seabuckthorn.wellwith</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink/50">Instagram</p>
+                  <p className="mt-1 font-display text-xl font-semibold">@vaandana.yadav</p>
                 </div>
                 <span className="grid h-10 w-10 place-items-center rounded-full bg-ink text-cream transition-transform group-hover:rotate-45">↗</span>
               </a>
